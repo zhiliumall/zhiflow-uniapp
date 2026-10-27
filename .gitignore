@@ -1,0 +1,33 @@
+# 依赖与构建产物
+node_modules/
+unpackage/
+dist/
+output/
+
+# 本地环境覆盖（.env 为入库模板）
+.env.local
+.env.*.local
+
+# 编辑器 / 系统
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# 本地工具目录
+.agents/
+.claude/
+.codex/
+.opencode/
+.playwright-cli/
+.mcp.json
+
+# 本地临时产物（截图、备份、离线包）
+/*.png
+/*.jpg
+/*.jpeg
+/*.zip
+/*.patch
+
+# 日志
+*.log

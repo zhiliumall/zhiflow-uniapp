@@ -1,0 +1,116 @@
+
+.uniui-wallet:before {
+  content: "\e6b1";
+}
+
+.uniui-fire-filled:before {
+  content: "\e6c5";
+}
+
+.uniui-back:before {
+  content: "\e6b9";
+}
+
+.uniui-arrow-right:before {
+  content: "\e6bb";
+}
+
+.uniui-arrow-left:before {
+  content: "\e6bc";
+}
+
+.uniui-arrowthinright:before {
+  content: "\e6d1";
+}
+
+.uniui-right:before {
+  content: "\e6b5";
+}
+
+.uniui-left:before {
+  content: "\e6b7";
+}
+
+.uniui-arrowright:before {
+  content: "\e6d5";
+}
+
+.uniui-arrowleft:before {
+  content: "\e6b7";
+}
+
+.uniui-info:before {
+  content: "\e669";
+}
+
+.uniui-calendar:before {
+  content: "\e6a0";
+}
+
+.uniui-link:before {
+  content: "\e6a5";
+}
+
+.uniui-weixin:before {
+  content: "\e691";
+}
+
+.uniui-compose:before {
+  content: "\e67f";
+}
+
+.uniui-trash:before {
+  content: "\e687";
+}
+
+.uniui-spinner-cycle:before {
+  content: "\e68a";
+}
+
+.uniui-download:before {
+  content: "\e68d";
+}
+
+.uniui-plusempty:before {
+  content: "\e67b";
+}
+
+.uniui-closeempty:before {
+  content: "\e66c";
+}
+
+.uniui-clear:before {
+  content: "\e66d";
+}
+
+.uniui-image:before {
+  content: "\e670";
+}
+
+.uniui-mic:before {
+  content: "\e671";
+}
+
+.uniui-close:before {
+  content: "\e673";
+}
+
+.uniui-plus:before {
+  content: "\e676";
+}
+
+.uniui-checkmarkempty:before {
+  content: "\e65c";
+}
+
+.uniui-refresh:before {
+  content: "\e657";
+}
+
+.uniui-search:before {
+  content: "\e654";
+}
+
+.uniui-bars:before {
+  content: "\e627";
+}

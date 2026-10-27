@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": [
+    "node_modules/**",
+    "unpackage/**",
+    "dist/**",
+    "**/*.min.js"
+  ],
+  "plugins": [
+    "typescript",
+    "import"
+  ],
+  "categories": {
+    "correctness": "warn",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error",
+    "no-alert": "error",
+    "no-debugger": "error",
+    "no-console": "warn",
+    "import/no-duplicates": "warn",
+    /* 迁移自 biome：关闭偏样式类规则 */
+    "prefer-template": "off", /* biome.useTemplate 对应 */
+    "typescript/no-non-null-assertion": "off", /* biome.noNonNullAssertion 对应 */
+    "typescript/no-explicit-any": "off", /* biome.noExplicitAny 对应（也在 overrides 中兜底） */
+    "react/no-array-index-key": "off", /* biome.noArrayIndexKey 对应 */
+    "react-hooks/exhaustive-deps": "off" /* biome.useExhaustiveDependencies 对应 */
+  },
+  "overrides": [
+    {
+      "files": ["**/*.vue"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}

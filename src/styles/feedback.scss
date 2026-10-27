@@ -1,0 +1,31 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+.fb-field-error {
+  display: block;
+  margin-top: 12rpx;
+  font-size: var(--zf-fs-sm);
+  line-height: 40rpx;
+  font-weight: 400;
+  color: var(--zf-fb-danger);
+  text-align: left;
+}
+.fb-field-error--indent {
+  padding-left: 144rpx;
+}
+.fb-inline-tip {
+  display: block;
+  font-size: var(--zf-fs-sm);
+  line-height: 40rpx;
+  color: var(--zf-fb-ink-3);
+}
+
+html[data-scale="large"] .fb-field-error,
+html[data-scale="large"] .fb-inline-tip {
+  font-size: 32rpx;
+  line-height: 52rpx;
+}
+
+@import "./legacy-dialog.scss";

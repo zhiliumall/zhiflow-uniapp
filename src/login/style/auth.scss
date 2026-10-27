@@ -1,0 +1,296 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+/* 登录域（登录入口 / 账号登录 / 注册 / 绑定手机号）共用样式 */
+
+.auth-page {
+  --auth-wx: #07c160;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: calc(env(safe-area-inset-top) + 24rpx) 40rpx calc(48rpx + env(safe-area-inset-bottom));
+  background: var(--zf-login-bg, var(--zf-bg-page));
+  color: var(--zf-ink-1);
+  font-family: var(--zf-font);
+}
+
+.auth-col {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* 顶行：返回 + 右侧次要入口（微信内由微信自带返回，不渲染返回键） */
+.auth-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72rpx;
+}
+
+.auth-back {
+  width: 72rpx;
+  height: 72rpx;
+  margin-left: -16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--zf-ink-1);
+}
+
+.auth-topbar__right {
+  margin-left: auto;
+  font-size: var(--zf-fs-base);
+  color: var(--zf-ink-3);
+  padding: 12rpx 0 12rpx 24rpx;
+}
+
+.auth-head {
+  margin-top: 40rpx;
+}
+
+.auth-title {
+  display: block;
+  font-size: var(--zf-fs-5xl);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--zf-ink-1);
+}
+
+.auth-sub {
+  display: block;
+  margin-top: 12rpx;
+  font-size: var(--zf-fs-md);
+  line-height: 1.5;
+  color: var(--zf-ink-3);
+}
+
+.auth-card {
+  margin-top: 48rpx;
+  padding: 48rpx 40rpx 40rpx;
+  background: var(--zf-bg-card);
+  border-radius: var(--zf-r-5);
+  box-shadow: var(--zf-login-card-shadow, none);
+  box-sizing: border-box;
+}
+
+/* 登录方式切换 */
+.auth-tabs {
+  display: flex;
+  gap: 48rpx;
+  margin-bottom: 40rpx;
+}
+
+.auth-tab {
+  position: relative;
+  padding-bottom: 12rpx;
+  font-size: var(--zf-fs-lg);
+  color: var(--zf-ink-3);
+}
+
+.auth-tab.is-active {
+  font-weight: 600;
+  color: var(--zf-ink-1);
+}
+
+.auth-tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 40rpx;
+  height: 6rpx;
+  margin-left: -20rpx;
+  border-radius: var(--zf-r-full);
+  background: var(--zf-brand);
+}
+
+/* 输入行 */
+.auth-field + .auth-field {
+  margin-top: 28rpx;
+}
+
+.auth-field__label {
+  display: block;
+  margin-bottom: 12rpx;
+  font-size: var(--zf-fs-md);
+  font-weight: 600;
+  color: var(--zf-ink-1);
+}
+
+.auth-input-box {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  height: 96rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  border-radius: var(--zf-r-full);
+  background: var(--zf-login-field-bg, var(--zf-fill-2));
+  border: 2rpx solid transparent;
+}
+
+.auth-input-box.is-error {
+  border-color: var(--zf-danger);
+}
+
+.auth-cc {
+  flex: none;
+  font-size: var(--zf-fs-lg);
+  font-weight: 600;
+  color: var(--zf-ink-1);
+}
+
+.auth-cc-divider {
+  flex: none;
+  width: 2rpx;
+  height: 32rpx;
+  background: var(--zf-login-field-div, var(--zf-line-2));
+}
+
+.auth-input {
+  flex: 1;
+  min-width: 0;
+  height: 96rpx;
+  font-size: var(--zf-fs-lg);
+  color: var(--zf-ink-1);
+}
+
+.auth-eye {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+  height: 56rpx;
+  color: var(--zf-ink-3);
+}
+
+.auth-getcode {
+  flex: none;
+  font-size: var(--zf-fs-base);
+  font-weight: 600;
+  color: var(--zf-brand);
+  white-space: nowrap;
+}
+
+.auth-getcode.is-disabled {
+  font-weight: 400;
+  font-family: var(--zf-font-num);
+  font-variant-numeric: tabular-nums;
+  color: var(--zf-ink-3);
+}
+
+.auth-hint {
+  display: block;
+  margin-top: 12rpx;
+  padding-left: 32rpx;
+  font-size: var(--zf-fs-sm);
+  line-height: 1.5;
+  color: var(--zf-ink-3);
+}
+
+.auth-agree {
+  margin-top: 32rpx;
+}
+
+/* 按钮 */
+.auth-btn {
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--zf-r-full);
+  font-family: var(--zf-font);
+  font-size: var(--zf-fs-xl);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.auth-btn::after {
+  display: none;
+}
+
+.auth-btn--primary {
+  margin-top: 40rpx;
+  color: var(--zf-white);
+  background: var(--zf-login-grad-btn, var(--zf-grad-brand));
+  box-shadow: var(--zf-login-shadow-btn, none);
+}
+
+.auth-btn--outline {
+  color: var(--zf-brand);
+  background: var(--zf-bg-card);
+  border: 2rpx solid var(--zf-brand);
+}
+
+.auth-btn--wx {
+  color: var(--zf-white);
+  background: var(--auth-wx);
+}
+
+.auth-btn--ghost {
+  color: var(--zf-ink-2);
+  background: var(--zf-fill-2);
+}
+
+.auth-btn.is-pressed {
+  box-shadow: inset 0 0 0 999rpx var(--zf-press-overlay, rgba(0, 0, 0, 0.08));
+}
+
+.auth-btn.is-busy {
+  opacity: 0.92;
+}
+
+.auth-spinner {
+  flex: none;
+  width: 32rpx;
+  height: 32rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 4rpx solid currentColor;
+  border-right-color: transparent;
+  animation: auth-spin 0.8s linear infinite;
+}
+
+@keyframes auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  font-size: var(--zf-fs-base);
+  color: var(--zf-ink-3);
+}
+
+.auth-links--center {
+  justify-content: center;
+}
+
+.auth-link {
+  color: var(--zf-brand);
+  padding: 8rpx 0;
+}
+
+.auth-note {
+  display: block;
+  margin-top: 24rpx;
+  text-align: center;
+  font-size: var(--zf-fs-sm);
+  line-height: 1.5;
+  color: var(--zf-ink-3);
+}

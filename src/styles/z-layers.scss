@@ -1,0 +1,27 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+uni-toast {
+  z-index: 10060;
+}
+
+.uni-mask {
+  z-index: 10040;
+}
+
+uni-modal {
+  z-index: 10040;
+}
+
+.uni-modal,
+.uni-actionsheet,
+.uni-toast,
+.uni-sample-toast {
+  z-index: 10041;
+}
+
+.uni-picker-container .uni-picker-custom {
+  z-index: 10041;
+}

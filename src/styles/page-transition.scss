@@ -1,0 +1,31 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+html.nav-ready uni-page {
+  animation: motion-page-in var(--dur-page, 440ms) var(--ease-page, ease-out);
+}
+
+html.nav-ready.nav-back uni-page {
+  animation: motion-page-back-in var(--dur-page, 440ms) var(--ease-page, ease-out);
+}
+
+html.nav-ready.nav-tab uni-page {
+  animation: motion-tab-fade-in var(--dur-tab, 320ms) var(--ease-out, ease-out);
+}
+
+@keyframes motion-page-in {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes motion-page-back-in {
+  from { transform: translateX(-24%); opacity: 0.88; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes motion-tab-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

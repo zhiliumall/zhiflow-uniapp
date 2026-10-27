@@ -1,0 +1,66 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+.fb-legacy-dialog > .cu-bar,
+.fb-legacy-dialog > .modal-header {
+  background: transparent !important;
+  padding: 48rpx 48rpx 16rpx !important;
+  min-height: 0;
+  height: auto;
+}
+.fb-legacy-dialog > .cu-bar > .content {
+  position: static;
+  width: 100%;
+  margin: 0;
+  font-size: 34rpx;
+  line-height: 48rpx;
+  font-weight: 600;
+  color: var(--zf-fb-title);
+}
+.fb-legacy-dialog > .cu-bar > .action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 88rpx;
+  height: 88rpx;
+  justify-content: center;
+}
+.fb-legacy-dialog > .padding-xl,
+.fb-legacy-dialog > .padding-top-xl,
+.fb-legacy-dialog > .padding-lr-xl,
+.fb-legacy-dialog > .padding-sm:not(.fb-legacy-dialog__footer),
+.fb-legacy-dialog > .modal-content,
+.fb-legacy-dialog > .agreement-modal-header {
+  padding: 0 48rpx 36rpx !important;
+  max-height: 60vh;
+  overflow-y: auto;
+  font-size: 30rpx;
+  line-height: 44rpx;
+  color: var(--zf-fb-ink-2);
+  text-align: center !important;
+}
+
+.fb-legacy-dialog__query .cu-form-group {
+  padding: 24rpx 48rpx;
+  border: none;
+  background: transparent;
+}
+.fb-legacy-dialog__query .fb-field-error {
+  margin: 0 48rpx 24rpx;
+  padding: 0;
+}
+.fb-legacy-dialog .padding-xl {
+  white-space: pre-line;
+}
+.fb-legacy-dialog__form-header .popup-title {
+  font-size: 34rpx !important;
+  line-height: 48rpx;
+  font-weight: 600;
+  color: var(--zf-fb-title);
+}
+.fb-legacy-dialog.phone-popup .fb-field-error {
+  margin: 0 48rpx 16rpx;
+}

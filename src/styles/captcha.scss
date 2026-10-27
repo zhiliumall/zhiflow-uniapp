@@ -1,0 +1,485 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+@mixin cap-tokens {
+
+  --cap-modal-w:     340px;
+  --cap-modal-r:     18px;
+  --cap-img-w:       300px;
+  --cap-img-h:       180px;
+  --cap-img-r:       12px;
+  --cap-piece:       46px;
+  --cap-track-h:     46px;
+  --cap-handle:      42px;
+
+  --cap-mask:        rgba(var(--zf-navy-rgb, 10, 22, 51), 0.40);
+  --cap-track-bg:    var(--zf-bg-gray, #F2F5FB);
+  --cap-track-line:  var(--zf-line-1, #E4E9F4);
+  --cap-fill-drag:   rgba(var(--zf-brand-rgb, 232, 97, 40), 0.14);
+  --cap-fill-ok:     rgba(0, 196, 143, 0.18);
+  --cap-fill-err:    rgba(245, 72, 59, 0.15);
+  --cap-handle-grad: var(--zf-grad-brand, linear-gradient(135deg, #E86128, #FF7A1F));
+  --cap-handle-ok:   linear-gradient(135deg, #00C48F, #00E0A8);
+  --cap-handle-err:  linear-gradient(135deg, #F5483B, #FF6E5A);
+  --cap-bar-ok:      linear-gradient(90deg, rgba(0, 196, 143, 0.92), rgba(0, 224, 168, 0.92));
+  --cap-bar-err:     linear-gradient(90deg, rgba(245, 72, 59, 0.92), rgba(255, 110, 90, 0.92));
+
+  --cap-dur-in:      500ms;
+  --cap-dur-out:     260ms;
+  --cap-dur-mask:    250ms;
+  --cap-dur-state:   250ms;
+  --cap-dur-pop:     250ms;
+  --cap-dur-shake:   400ms;
+  --cap-shine:       2.6s;
+  --cap-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cap-ease-pop:    cubic-bezier(0.3, 1.6, 0.5, 1);
+  --cap-ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+page {
+  @include cap-tokens;
+}
+:root {
+  @include cap-tokens;
+}
+
+.zf-cap {
+  position: fixed;
+  top: 0;
+  left: var(--window-left, 0px);
+  right: var(--window-right, 0px);
+  bottom: 0;
+
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zf-cap-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--cap-mask);
+  animation: capOvIn var(--cap-dur-mask) ease both;
+}
+.zf-cap-modal {
+  position: relative;
+  width: var(--cap-modal-w);
+  max-width: calc(100vw - 20px);
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: var(--cap-modal-r);
+  padding: 20px 20px 12px;
+  box-shadow: var(--zf-shadow-modal, 0 14px 40px rgba(var(--zf-navy-rgb, 10, 22, 51), 0.25));
+  animation: capBounceIn var(--cap-dur-in) var(--cap-ease-spring) both;
+}
+.zf-cap.is-closing .zf-cap-mask { animation: capOut var(--cap-dur-out) ease forwards; }
+.zf-cap.is-closing .zf-cap-modal { animation: capBounceIn var(--cap-dur-out) ease reverse forwards; }
+
+.zf-cap-head { text-align: center; }
+.zf-cap-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: var(--zf-fs-xl);
+  font-weight: 600;
+  color: var(--zf-ink-1);
+}
+.zf-cap-sub {
+  font-size: var(--zf-fs-sm);
+  color: var(--zf-ink-4);
+  margin-top: 4px;
+}
+.zf-cap-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 4px;
+  line-height: 0;
+}
+
+.zf-cap-img {
+  position: relative;
+  width: 100%;
+  height: var(--cap-img-h);
+  border-radius: var(--cap-img-r);
+  overflow: hidden;
+  margin-top: 12px;
+  background: var(--zf-bg-gray);
+
+  .verify-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    image, img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .verify-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(var(--zf-navy-rgb, 10, 22, 51), 0.35));
+
+    image, img {
+      overflow: hidden;
+      width: 55px;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  .verify-concat-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.zf-cap-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(20, 41, 92, 0.20), rgba(var(--zf-brand-rgb, 232, 97, 40), 0.06) 55%, rgba(var(--zf-cyan-rgb, 0, 180, 255), 0.15));
+}
+
+.zf-cap-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background: linear-gradient(100deg, var(--zf-bg-gray) 40%, #fff 50%, var(--zf-bg-gray) 60%);
+  background-size: 200% 100%;
+  animation: capShine var(--cap-shine) linear infinite;
+}
+
+.zf-cap-clicktips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: var(--zf-fs-base);
+  color: var(--zf-ink-3);
+
+  image, img {
+    width: 210px;
+    height: 40px;
+  }
+}
+.zf-cap-img .image-click-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+
+  .click-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: var(--zf-r-pill);
+    background: var(--zf-brand);
+    color: var(--zf-white);
+    border: 2px solid #fff;
+    box-sizing: content-box;
+    font-size: var(--zf-fs-base);
+  }
+}
+
+.zf-cap-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--zf-fs-base);
+  font-weight: 600;
+  color: var(--zf-white);
+  animation: capFade 300ms ease both;
+}
+.zf-cap-bar--ok  { background: var(--cap-bar-ok); }
+.zf-cap-bar--err { background: var(--cap-bar-err); }
+.zf-cap-bar .icon { line-height: 0; animation: capPop var(--cap-dur-pop) var(--cap-ease-pop) both; }
+
+.zf-cap-track {
+  position: relative;
+  width: 100%;
+  height: var(--cap-track-h);
+  margin-top: 12px;
+  border-radius: var(--zf-r-pill);
+  background: var(--cap-track-bg);
+  border: 1px solid var(--cap-track-line);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.zf-cap.is-err .zf-cap-track { animation: capShake var(--cap-dur-shake) ease both; }
+.zf-cap-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--zf-r-pill) 0 0 var(--zf-r-pill);
+
+  background: linear-gradient(100deg,
+    rgba(var(--zf-brand-rgb, 232, 97, 40), 0.10) 30%,
+    rgba(var(--zf-cyan-rgb, 0, 180, 255), 0.28) 50%,
+    rgba(var(--zf-brand-rgb, 232, 97, 40), 0.10) 70%);
+  background-size: 200% 100%;
+  animation: capFillFlow 1.5s linear infinite;
+}
+
+.zf-cap.is-ok  .zf-cap-fill { background: var(--cap-fill-ok);  animation: none; }
+.zf-cap.is-err .zf-cap-fill { background: var(--cap-fill-err); animation: none; }
+
+.zf-cap-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-size: var(--zf-fs-base);
+  font-weight: 600;
+
+  color: var(--zf-ink-4);
+}
+
+.zf-cap-area {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  z-index: 1;
+}
+.zf-cap-handle {
+  width: var(--cap-handle);
+  height: var(--cap-handle);
+  border-radius: 50%;
+  background: var(--cap-handle-grad);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: grab;
+  touch-action: none;
+  transition: background var(--cap-dur-state) ease;
+}
+.zf-cap-handle:active { cursor: grabbing; }
+.zf-cap.is-ok  .zf-cap-handle { background: var(--cap-handle-ok); }
+.zf-cap.is-err .zf-cap-handle { background: var(--cap-handle-err); }
+.zf-cap-handle .icon-ok,
+.zf-cap-handle .icon-err { animation: capPop var(--cap-dur-pop) var(--cap-ease-pop) both; }
+
+.zf-cap-foot {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  font-size: var(--zf-fs-base);
+  color: var(--zf-ink-3);
+
+  .sep {
+    width: 1px;
+    height: 12px;
+    background: var(--cap-track-line);
+    margin: 0 12px;
+  }
+  .brand {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--zf-fs-sm);
+    color: var(--zf-ink-5);
+  }
+}
+.zf-cap-refresh {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.zf-cap-refresh.is-spinning .zf-icon { animation: capSpin 700ms ease both; }
+
+@keyframes capOvIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes capOut { to { opacity: 0; } }
+@keyframes capBounceIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes capPop { 0% { transform: scale(0); } 70% { transform: scale(1.35); } 100% { transform: scale(1); } }
+@keyframes capFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes capShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+@keyframes capShine { 0% { background-position: 180% 0; } 100% { background-position: -180% 0; } }
+@keyframes capFillFlow { 0% { background-position: 180% 0; } 100% { background-position: -180% 0; } }
+@keyframes capSpin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .zf-cap-modal, .zf-cap-mask, .zf-cap-bar, .zf-cap-hint, .zf-cap-skeleton, .zf-cap-fill,
+  .zf-cap-handle .icon-ok, .zf-cap-handle .icon-err, .zf-cap-bar .icon,
+  .zf-cap-refresh.is-spinning .zf-icon, .zf-cap.is-err .zf-cap-track {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .zf-cap-fill, .zf-cap-handle { transition-duration: 0.01ms !important; }
+}
+
+.zf-cap-reference {
+  --cap-mask: rgba(var(--zf-navy-rgb, 10, 22, 51), 0.65);
+  --cap-modal-w: 589.6rpx;
+  --cap-modal-r: 28.2rpx;
+  --cap-img-h: 310.22rpx;
+  --cap-img-r: 21.15rpx;
+  --cap-track-h: 83.73rpx;
+  --cap-handle: 79.32rpx;
+  --cap-handle-grad: var(--zf-primary);
+  box-sizing: border-box;
+  padding-top: 132.2rpx;
+
+  .zf-cap-modal {
+    max-width: calc(100vw - 48rpx);
+    padding: 43.18rpx 32.61rpx 29.08rpx;
+    background: var(--zf-bg-card);
+  }
+
+  .zf-cap-title {
+    gap: 8.81rpx;
+    font-size: var(--zf-fs-2xl);
+    line-height: 40.54rpx;
+  }
+
+  .zf-cap-title .zf-icon {
+    width: 28.2rpx !important;
+    height: 28.2rpx !important;
+  }
+
+  .zf-cap-sub {
+    margin-top: 12.34rpx;
+    font-size: var(--zf-fs-base);
+    line-height: 31.73rpx;
+  }
+
+  .zf-cap-close {
+    top: 30.85rpx;
+    right: 27.32rpx;
+    padding: 4.4rpx;
+  }
+
+  .zf-cap-close .zf-icon {
+    width: 35.25rpx !important;
+    height: 35.25rpx !important;
+    color: var(--zf-ink-5) !important;
+  }
+
+  .zf-cap-img { margin-top: 14.1rpx; }
+  .zf-cap-tint { display: none; }
+  .zf-cap-track { margin-top: 17.63rpx; }
+  .zf-cap-area { top: 0; left: 0; width: calc(100% - 2px); height: calc(100% - 2px); }
+  .zf-cap-hint { font-size: var(--zf-fs-base); font-weight: 400; }
+
+  .zf-cap-handle .zf-icon {
+    width: 37rpx !important;
+    height: 37rpx !important;
+  }
+
+  .zf-cap-foot {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 22.03rpx;
+    font-size: var(--zf-fs-base);
+    line-height: 33.49rpx;
+    color: var(--zf-ink-4);
+  }
+
+  .zf-cap-refresh, .zf-cap-help {
+    display: flex;
+    align-items: center;
+    gap: 12.34rpx;
+  }
+
+  .zf-cap-refresh .zf-icon, .zf-cap-help-icon {
+    width: 31.73rpx !important;
+    height: 31.73rpx !important;
+    color: var(--zf-ink-4) !important;
+  }
+
+  .sep { display: none; }
+
+  .brand {
+    flex-basis: 100%;
+    justify-content: center;
+    margin: 25.56rpx 0 0;
+    gap: 8.81rpx;
+    font-size: var(--zf-fs-xs);
+    line-height: 28.2rpx;
+    color: var(--zf-ink-4);
+  }
+
+  .brand .zf-icon { width: 28.2rpx !important; height: 28.2rpx !important; }
+  .brand .zf-icon svg path { stroke: var(--zf-ink-5); }
+}
+
+.zf-cap-reference-rotate .zf-cap-img .verify-slider {
+  left: 50%;
+  top: 50%;
+  width: 169.22rpx;
+  height: 169.22rpx;
+  margin: -84.61rpx 0 0 -84.61rpx;
+  border: 2.64rpx solid var(--zf-ink-4);
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+  filter: none;
+
+  image, img { width: 100% !important; height: 100% !important; }
+}
+
+@media (max-height: 560px) {
+  .zf-cap-reference {
+    padding-top: 0;
+
+    .zf-cap-modal { max-height: calc(100dvh - 24px); overflow-y: auto; }
+  }
+}

@@ -1,0 +1,37 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+.field{border:1.5px solid #D9E0EE;border-radius:var(--zf-r-4);transition:border-color var(--dur-state) ease, box-shadow var(--dur-state) ease;}
+.field.is-focus{border-color:var(--c-brand);box-shadow:0 0 0 3px rgba(var(--zf-brand-rgb, 232, 97, 40),.14);}
+.field.is-ok   {border-color:var(--c-success);box-shadow:0 0 0 3px rgba(0,196,143,.16);}
+.otp-box.is-active{border-color:var(--c-brand);}
+.sheet{position:fixed;left: var(--window-left, 0px);right: var(--window-right, 0px);bottom:0;border-radius:var(--zf-r-5) var(--zf-r-5) 0 0;animation:barUp var(--dur-sheet) var(--ease-out-quint) both;}
+
+.sheet .share-item{animation:ui-icon-pop var(--dur-icon-pop) var(--ease-pop) both;}
+.tab-label.is-active{color:var(--zf-ink-1);font-weight:500;}
+
+.chip{border:1.5px solid #D9E0EE;background:#fff;color:var(--zf-ink-3);border-radius:var(--zf-r-full);
+  transition:border-color var(--dur-state) ease, background var(--dur-state) ease, color var(--dur-state) ease;}
+.chip.is-selected{border-color:var(--c-brand);background:#EAF2FF;color:var(--c-brand);}
+.chk.is-checked{background:var(--c-brand);border-color:var(--c-brand);}
+
+.skeleton-animate, .skeleton-animate-fast {
+  background: var(--zf-fill-1) !important;
+  background-image: none !important;
+  animation: none !important;
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-animate::after, .skeleton-animate-fast::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+  animation: ui-sk-sweep var(--loop-skeleton) var(--ease-standard) infinite;
+  animation-play-state: var(--ui-play, running);
+  pointer-events: none;
+}
+.perf-lite .skeleton-animate::after, .perf-lite .skeleton-animate-fast::after { animation: none; }

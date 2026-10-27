@@ -1,0 +1,64 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# 顶级配置文件
+root = true
+
+# 所有文件的通用配置
+[*]
+# 字符编码
+charset = utf-8
+# 换行符类型 (lf: Unix风格, crlf: Windows风格, cr: Mac风格)
+end_of_line = lf
+# 文件末尾插入新行
+insert_final_newline = true
+# 去除行尾空白字符
+trim_trailing_whitespace = true
+# 缩进风格 (space: 空格, tab: 制表符)
+indent_style = space
+# 缩进大小
+indent_size = 2
+
+# JavaScript/TypeScript 文件配置
+[*.{js,ts,jsx,tsx}]
+indent_size = 2
+
+# Vue 文件配置
+[*.vue]
+indent_size = 2
+
+# CSS/SCSS/LESS 文件配置
+[*.{css,scss,less,sass}]
+indent_size = 2
+
+# HTML 文件配置
+[*.{html,htm}]
+indent_size = 2
+
+# JSON 文件配置
+[*.json]
+indent_size = 2
+
+# YAML 文件配置
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown 文件配置
+[*.md]
+# Markdown 文件保留行尾空白（用于换行）
+trim_trailing_whitespace = false
+
+# Makefile 必须使用 tab 缩进
+[Makefile]
+indent_style = tab
+
+# Python 文件配置
+[*.py]
+indent_size = 4
+
+# 包管理文件配置
+[package.json]
+indent_size = 2
+
+# 配置文件
+[*.{config,conf}]
+indent_size = 2

@@ -1,0 +1,97 @@
+/*
+ * Copyright (C) 2025 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+@import "./style/variables.css";
+@import "./style/skeleton.css";
+@import "./libs/public/colorui/main.css";
+@import "./libs/public/colorui/icon.css";
+@import "./libs/public/colorui/animation.css";
+
+page,
+uni-page {
+  background-color: var(--page-bg-color, #ffffff) !important;
+  font-size: var(--zf-fs-md);
+  color: var(--zf-ink-1);
+  font-family: var(--zf-font);
+}
+
+.text-gray,
+.text-grey {
+  color: var(--zf-ink-3, #5a6b8c) !important;
+}
+
+.text-black {
+  color: var(--zf-ink-1, #0a1633);
+}
+
+html.wechat-browser .lib-header,
+body.wechat-browser .lib-header {
+
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html.wechat-browser .show-wechat-header .lib-header,
+body.wechat-browser .show-wechat-header .lib-header {
+  display: block !important;
+}
+
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-scarlet {
+  color: var(--zf-badge);
+}
+
+.cu-steps.steps-bottom .cu-item::before,
+.cu-steps.steps-bottom .cu-item::after {
+  left: -10upx;
+  bottom: 70upx;
+  top: initial;
+}
+
+uni-checkbox[disabled] .uni-checkbox-wrapper .uni-checkbox-input {
+  background: #d5d3d8 !important;
+}
+
+.wrapper-list-goods .item {
+  display: inline-block;
+  width: 160rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+  margin-bottom: 8rpx;
+}
+
+.wrapper-list-shop .item {
+  display: inline-block;
+}
+
+.wrapper-list-shop .item .img-box .image {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--zf-r-1);
+}
+
+.vip-goods-tag.sm {
+  font-size: var(--zf-fs-xs);
+  padding: 0 8rpx;
+  height: 32upx;
+  line-height: 32upx;
+}
+uni-navigator a {
+  display: contents;
+}
+
+uni-radio::before,
+uni-checkbox::before {
+  content: "";
+}
+
+.uni-popup {
+  z-index: var(--uni-z-index-popup, 99) !important;
+}

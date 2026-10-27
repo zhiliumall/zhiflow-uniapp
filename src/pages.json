@@ -1,0 +1,257 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "backgroundTextStyle": "dark"
+      }
+    },
+    {
+      "path": "pages/goods/goods-category/index",
+      "style": {
+        "navigationBarTitleText": "商品分类"
+      }
+    },
+    {
+      "path": "pages/shopping-cart/index",
+      "style": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pages/user/user-center/index",
+      "style": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "个人中心",
+        "disableSwipeBack": true
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "base",
+      "pages": [
+        {
+          "path": "search/index",
+          "style": {
+            "navigationBarTitleText": "搜索",
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "root": "goods",
+      "pages": [
+        {
+          "path": "goods-list/index",
+          "style": {
+            "navigationBarTitleText": "",
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "goods-detail/index",
+          "style": {
+            "navigationBarTextStyle": "black",
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "order",
+      "pages": [
+        {
+          "path": "order-confirm/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "redirect/index",
+          "style": {
+            "navigationBarTitleText": "正在跳转…",
+            "navigationBarBackgroundColor": "#ffffff",
+            "navigationBarTextStyle": "black"
+          }
+        },
+        {
+          "path": "order-pay-result/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "order-pay-fail/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "order-timeout/index",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false,
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "order-list/index",
+          "style": {
+            "enablePullDownRefresh": false,
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "order-detail/index",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false,
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pay",
+      "pages": [
+        {
+          "path": "order/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "login",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "LoginPhone",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "register",
+          "style": {
+            "navigationBarTitleText": "",
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "phone-bind",
+          "style": {
+            "navigationBarTitleText": "",
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "root": "user",
+      "pages": [
+        {
+          "path": "user-info/detail",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "user-info/setting",
+          "style": {
+            "navigationBarTitleText": "",
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "user-delete/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "user-address/list/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "user-address/form/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "user-xieyi/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "public",
+      "pages": [
+        {
+          "path": "agreement/index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
+          "path": "webview/webview",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "404",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTitleText": "智流商城",
+    "navigationStyle": "custom",
+    "pageOrientation": "portrait"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#E86128",
+    "custom": true,
+    "list": [
+      { "pagePath": "pages/home/index", "text": "首页" },
+      { "pagePath": "pages/goods/goods-category/index", "text": "分类" },
+      { "pagePath": "pages/shopping-cart/index", "text": "购物车" },
+      { "pagePath": "pages/user/user-center/index", "text": "我的" }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "lib-page-container": "@/libs/components/page-container/index.vue",
+      "zf-icon": "@/libs/components/zf-icon/zf-icon.vue",
+      "lib-(.*)": "@/libs/components/$1/$1.vue",
+      "verify-code": "@/uni_modules/tianai-mini-captcha/components/tianai-mini-captcha/index.vue"
+    }
+  }
+}

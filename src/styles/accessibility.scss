@@ -1,0 +1,21 @@
+/*
+ * Copyright (C) 2025 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.aria-live {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

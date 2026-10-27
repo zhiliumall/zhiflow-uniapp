@@ -1,0 +1,81 @@
+/*
+ * Copyright (C) 2026 gaipharma.com
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+.ui-sortbar__item.is-active { color: var(--ui-green); font-weight: 600; }
+.ui-sortbar__caret.is-on { color: var(--ui-green); }
+.ui-picon:active, .ui-picon.is-active { color: var(--ui-icon-active); }
+.ui-picon.is-disabled { color: var(--ui-icon-disabled); pointer-events: none; }
+
+.zf-btn-primary.button-hover, .zf-btn-primary.zf-btn--press { background: var(--zf-primary-pressed); color: var(--zf-on-primary); }
+.zf-btn-soft.button-hover,    .zf-btn-soft.zf-btn--press    { background: var(--zf-primary-bg-pressed); color: var(--zf-primary-text); }
+.zf-btn-outline.button-hover, .zf-btn-outline.zf-btn--press { background: var(--zf-primary-bg); color: var(--zf-primary-pressed); }
+.zf-btn-danger.button-hover,  .zf-btn-danger.zf-btn--press  { background: var(--zf-danger-bg); color: var(--zf-danger-text); }
+.zf-btn-text.button-hover,    .zf-btn-text.zf-btn--press    { background: transparent; color: var(--zf-primary-text); }
+
+.zf-btn-primary.is-disabled, .zf-btn-primary[disabled][class] {
+  background: var(--zf-fill-2); border-color: transparent; color: var(--zf-disabled); pointer-events: none;
+}
+.zf-btn-soft.is-disabled,    .zf-btn-soft[disabled][class],
+.zf-btn-outline.is-disabled, .zf-btn-outline[disabled][class],
+.zf-btn-danger.is-disabled,  .zf-btn-danger[disabled][class] {
+  background: var(--zf-fill-1); border-color: transparent; color: var(--zf-disabled); pointer-events: none;
+}
+.zf-btn-text.is-disabled, .zf-btn-text[disabled][class] { background: transparent; color: var(--zf-disabled); pointer-events: none; }
+
+.zf-tabbar__svip.is-on .zf-tabbar__svip-disc {
+  background: #FFFFFF;
+  border: 2px solid var(--zf-tab-gold-2);
+}
+
+.cu-bar.tabbar .action {
+  transition: transform 120ms ease-out;
+  transform-origin: center bottom;
+}
+.cu-bar.tabbar .action.zf-tab-press {
+  transform: scale(0.96);
+}
+.zf-tabbar__svip-label.is-on { color: var(--zf-tab-gold-ink) !important; font-weight: 600; }
+.zf-chip.is-disabled,
+.zf-tag.is-disabled   { background: var(--zf-fill-1); border-color: transparent; color: var(--zf-ink-4); }
+.zf-cart-btn.button-hover, .zf-cart-btn.zf-btn--press { background: var(--zf-grad-press); }
+.zf-action-group__buy.button-hover, .zf-action-group__buy.zf-btn--press { background: var(--zf-primary-pressed); }
+.zf-article__meta .sep { width: 1px; height: 24rpx; background: var(--zf-line-3); }
+
+.pd-capsule-dots__item.is-active {
+  width: 32rpx;
+  background-color: #ffffff;
+}
+
+swiper.pd-capsule-dot .wx-swiper-dots,
+swiper.pd-capsule-dot .a-swiper-dots,
+swiper.pd-capsule-dot .uni-swiper-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+swiper.pd-capsule-dot .wx-swiper-dot,
+swiper.pd-capsule-dot .a-swiper-dot,
+swiper.pd-capsule-dot .uni-swiper-dot {
+  display: inline-block !important;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: var(--zf-r-full);
+  background-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.18);
+  opacity: 1;
+  margin: 0 4rpx !important;
+  transition: width 0.3s ease;
+}
+
+swiper.pd-capsule-dot .wx-swiper-dot.wx-swiper-dot-active,
+swiper.pd-capsule-dot .a-swiper-dot.a-swiper-dot-active,
+swiper.pd-capsule-dot .uni-swiper-dot.uni-swiper-dot-active {
+  width: 32rpx;
+  height: 8rpx;
+  background-color: #ffffff;
+  opacity: 1;
+}

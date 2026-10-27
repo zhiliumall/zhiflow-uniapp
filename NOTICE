@@ -1,0 +1,52 @@
+智流商城 H5 用户端（ZhiFlow Mall · zhiflow-uniapp）
+Copyright (C) 2024-2026 gaipharma.com
+本项目以 AGPL-3.0-only 发布，全文见 LICENSE。
+
+本项目包含或改编自以下第三方作品，各自保留原许可：
+
+1. ColorUI（样式库，src/libs/public/colorui/）
+   https://github.com/weilanwl/coloruicss
+   MIT License, Copyright (c) 2018 weilanwl
+   main.css 头注释里作者原文「仅供学习交流，如作它用所承受的法律责任一概与作者无关」原样保留；
+   使用条件以上游 LICENSE（MIT）为准。
+
+2. mp-html（富文本渲染组件，src/libs/public/mp-html/）
+   https://github.com/jin-yufeng/mp-html
+   MIT License, Copyright (c) 2019-present Jin Yufeng
+
+3. uni-ui 组件 uni-icons、uni-popup、uni-swipe-action、uni-transition（src/uni_modules/）
+   https://github.com/dcloudio/uni-ui
+   MIT License, Copyright (c) DCloud
+
+4. tianai-mini-captcha（滑块验证码组件，src/uni_modules/tianai-mini-captcha/）
+   https://gitee.com/qq_1326632/tianai-mini-captcha
+   MIT License, Copyright (c) 2025 ZhenNan.Shi
+   该组件参考 tianai-captcha-web-sdk（https://gitee.com/tianai/tianai-captcha-web-sdk，
+   木兰宽松许可证第 2 版）改编。组件 readme 里作者原文「此插件仅供学习参考」原样保留；
+   使用条件以上游 LICENSE（MIT）为准。
+
+以上 1～4 适用的 MIT 许可全文：
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+5. ZF Num 数字字体（src/static/h5/fonts/zf-num-*.woff2）
+   D-DIN（Datto, Inc.）的数字子集，按 SIL Open Font License 1.1 保留字体名条款改名。
+   许可全文见 src/static/h5/fonts/LICENSE-OFL.txt。
+
+npm 依赖的许可随各包分发（见 node_modules 下各包的 LICENSE）。
